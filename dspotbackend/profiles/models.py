@@ -22,3 +22,7 @@ class Profile(models.Model):
     bio = models.CharField(max_length=300)
     status = models.IntegerField(choices=statuses, default=0)
     available = models.BooleanField(default=False)
+
+class ProfilePhoto(models.Model):
+    profile = models.ForeignKey(Profile, on_delete=models.CASCADE)
+    photo = models.ImageField(blank=True, null=True)
