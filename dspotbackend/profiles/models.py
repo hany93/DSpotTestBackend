@@ -22,7 +22,12 @@ class Profile(models.Model):
     bio = models.CharField(max_length=300)
     status = models.IntegerField(choices=statuses, default=0)
     available = models.BooleanField(default=False)
+    friends = models.ManyToManyField("self", blank=True)
+
+    def __str__(self):
+        return "%s %s" % (self.first_name, self.last_name)
+
 
 class ProfilePhoto(models.Model):
     profile = models.ForeignKey(Profile, on_delete=models.CASCADE)
-    photo = models.ImageField(blank=True, null=True)
+    photo = models.ImageField()
