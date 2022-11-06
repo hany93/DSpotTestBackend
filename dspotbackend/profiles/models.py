@@ -29,5 +29,5 @@ class Profile(models.Model):
 
 
 class ProfilePhoto(models.Model):
-    profile = models.ForeignKey(Profile, on_delete=models.CASCADE)
+    profile = models.ForeignKey(Profile, related_name='profilephotos', on_delete=models.CASCADE)
     photo = models.ImageField()
