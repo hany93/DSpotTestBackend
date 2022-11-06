@@ -8,7 +8,7 @@ class ProfilePhotoSerializer(serializers.HyperlinkedModelSerializer):
         fields = ['photo']
 
 
-class ProfileSerializer(serializers.HyperlinkedModelSerializer):
+class ProfileSerializer(serializers.ModelSerializer):
     images = serializers.SerializerMethodField()
 
     def get_images(self, instance):
@@ -18,5 +18,5 @@ class ProfileSerializer(serializers.HyperlinkedModelSerializer):
 
     class Meta:
         model = Profile
-        fields = ['photo', 'first_name', 'last_name', 'phone', 'address', 'city', 'state', 'zipcode', 'bio', 'status',
+        fields = ['id', 'photo', 'first_name', 'last_name', 'phone', 'address', 'city', 'state', 'zipcode', 'bio', 'status',
                   'available', 'friends', 'images']

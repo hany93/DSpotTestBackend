@@ -28,7 +28,7 @@ class ProfileViewSet(viewsets.ModelViewSet):
 
         if Profile.objects.filter(pk=profile_id).exists():
             friends = Profile.objects.get(pk=profile_id).friends
-            ser = ProfileSerializer(friends, many=True, context={'request': request})
+            ser = ProfileSerializer(friends, many=True)
             return Response(ser.data, status=200)
         else:
             return Response('No existe perfil para el identificador ' + profile_id + '.', status=400)
