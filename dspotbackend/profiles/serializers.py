@@ -10,9 +10,9 @@ class ProfilePhotoSerializer(serializers.ModelSerializer):
 
 class ProfileSerializer(serializers.ModelSerializer):
     profilephotos = ProfilePhotoSerializer(many=True)
-    text_tatus = serializers.SerializerMethodField()
+    textStatus = serializers.SerializerMethodField()
 
-    def get_text_tatus(self, instance):
+    def get_textStatus(self, instance):
         return instance.get_status_display()
 
     class Meta:
