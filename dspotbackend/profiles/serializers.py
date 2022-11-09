@@ -13,6 +13,7 @@ class ProfileSerializer(serializers.ModelSerializer):
     textStatus = serializers.SerializerMethodField()
 
     def get_textStatus(self, instance):
+        # todo Method to get status text
         return instance.get_status_display()
 
     class Meta:

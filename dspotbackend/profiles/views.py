@@ -16,6 +16,7 @@ class ProfileViewSet(viewsets.ModelViewSet):
 
     @action(methods=['get'], detail=False, url_name='friends', url_path='friends')
     def friends(self, request):
+        #todo Method to get, given a profile id, all your friends
         profile_id = request.GET.get('profile_id')
         if not profile_id:
             return Response('El identificador del perfil es requerido.', status=400)

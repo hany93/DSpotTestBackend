@@ -9,6 +9,7 @@ class ProfileTest(TestCase):
         self.client = TestClient(HTTP_ORIGIN=domain)
 
     def test_list(self):
+        #todo Test to check method to list all profiles
         url = 'http://localhost:8000/profiles/profiles/'
         for i in range(1, 10):
             baker.make(Profile,
@@ -22,6 +23,7 @@ class ProfileTest(TestCase):
         self.assertEqual(count, 9)
 
     def test_get_profile_by_id(self):
+        #todo Test to check method, given a profile id, list its details
         url = 'http://localhost:8000/profiles/profiles/'
         profile = baker.make(Profile,
                              first_name='Profile',
