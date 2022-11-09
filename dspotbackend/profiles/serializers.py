@@ -10,8 +10,12 @@ class ProfilePhotoSerializer(serializers.ModelSerializer):
 
 class ProfileSerializer(serializers.ModelSerializer):
     profilephotos = ProfilePhotoSerializer(many=True)
+    textStatus = serializers.SerializerMethodField()
+
+    def get_textStatus(self, instance):
+        return instance.get_status_display()
 
     class Meta:
         model = Profile
         fields = ['id', 'photo', 'first_name', 'last_name', 'phone', 'address', 'city', 'state', 'zipcode', 'bio',
-                  'status', 'available', 'friends', 'profilephotos']
+                  'status', 'available', 'friends', 'profilephotos', 'textStatus']
