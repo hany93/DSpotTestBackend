@@ -9,7 +9,11 @@ class Profile(models.Model):
         (2, "Man, life is so good"),
         (3, "There is nothing quite like a good friend"),
         (4, "Take a look around you, everything is awesome"),
-        (5, "What is the point of all of this")
+        (5, "What is the point of all of this"),
+        (6, "At Work"),
+        (7, "Hangout out by the pool"),
+        (8, "At NG Conf!"),
+        (9, "Designing beatiful things")
     )
     #todo Profile Image
     photo = models.ImageField(blank=True, null=True)
